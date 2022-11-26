@@ -12,9 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # - name: "login to docker hub"
-      #   run: docker login --username ${{ secrets.USER }} --password ${{ secrets.TOKEN }}
+      - name: "login to docker hub"
+        run: docker login --username ${{ secrets.USER }} --password ${{ secrets.TOKEN }}
       - name: "bulding docker img"
-        run: docker build -t eslamgalal123/myimage .
+        run: docker build -t ${{ secrets.USER }}/myimage .
       - name: "pushing to docker" 
-        run: docker push  eslamgalal123/myimage .
+        run: docker push ${{ secrets.USER }}/myimage .
